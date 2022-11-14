@@ -36,10 +36,10 @@ public class DrillingMachine {
     public void becomeBroken(){
         broken = true;
     }
-    //public void repair(){
-        //broken = false;
-        //price = price / 2;
-    //}
+    public void repair(){
+        broken = false;
+        price = price / 2;
+    }
 
     public void aging(){
         age = age + 1;
