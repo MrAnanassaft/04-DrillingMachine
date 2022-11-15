@@ -1,3 +1,5 @@
+import java.util.HashMap;
+
 public class DrillingMachine {
     private int watt;
     private String name;
@@ -6,10 +8,10 @@ public class DrillingMachine {
     private boolean broken;
 
     public DrillingMachine() {
-        this.watt = (int)(Math.random() * 1200) + 800;
+        this.watt = (int)(Math.random() * 1201) + 800;
         this.name = "Heheheha";
-        this.age = (int)(Math.random() * 10);
-        this.price = (int)(Math.random() * 450) + 50;
+        this.age = (int)(Math.random() * 11);
+        this.price = (Math.random() * 450) + 50;
         this.broken = false;
     }
 
@@ -37,8 +39,10 @@ public class DrillingMachine {
         broken = true;
     }
     public void repair(){
-        broken = false;
-        price = price / 2;
+        if(broken == true){
+            broken = false;
+            price = price / 2;
+        }
     }
 
     public void aging(){
@@ -49,6 +53,39 @@ public class DrillingMachine {
     }
 
     public void reactOnHighDemand(){
-        price = price + (price * 0.25);
+        price *= 1.25;
+    }
+
+    public void setBroken(boolean isBroken){
+        broken = isBroken;
+    }
+
+    public void increasePrice(double amount){
+        price = price + amount;
+    }
+
+    public void changePower(int watt){
+        if(watt > 0){
+            this.watt += watt;
+            if(watt > 100){
+                price *= 1.05;
+            }
+        }else if(watt !=0){
+            this.watt += watt;
+            price *= 0.9;
+        }
+    }
+
+    public boolean isInexpensive(){
+        if(getWatt() > 500 && getPrice() < 80){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public double getPricePerWatt(){
+        double pricePerWatt = this.price / this.watt;
+        return pricePerWatt;
     }
 }
