@@ -3,5 +3,7 @@ public class MainProgram {
         DrillingMachine m1 = new DrillingMachine();
         DrillingMachine m2 = new DrillingMachine();
         DrillingMachine m3 = new DrillingMachine();
+
+        System.out.println(m1.getInfo());
     }
 }

@@ -88,4 +88,27 @@ public class DrillingMachine {
         double pricePerWatt = this.price / this.watt;
         return pricePerWatt;
     }
+
+    public boolean increasePriceByPercentage(double percentage){
+        if(percentage > 0.0){
+            price = price * percentage;
+        }
+        if(price > 100){
+            return true;
+        }
+        return false;
+    }
+
+    public boolean repair2(){
+        if(broken == true){
+            repair();
+            return true;
+        }
+        return false;
+    }
+    public String getInfo(){
+        String heheheha = "HOL SIE DIR JETZT! Diese Supermaschine: "  + name + " ist doch nur " + age + " jahre alt mit einer suppa Leistung von " + watt + " watt für nur  " + price + "€";
+        return heheheha;
+    }
+
 }
